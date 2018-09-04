@@ -15,3 +15,4 @@ right now only working on ubuntu based distro or debian.
 2. Extract folder.
 3. run chmod +x install.sh
 4. run ./install.sh
+5. choose between laravel, zsh, ssh key, driver and update&upgrade

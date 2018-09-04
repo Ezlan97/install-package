@@ -50,6 +50,7 @@ elif [ $input == "driver" ]; then
     echo "installing driver packages..."
         sudo ubuntu-drivers autoinstall
     echo "Done! all drivers installed"
+    
 elif [ $input == "zsh" ]; then
     echo "installing zsh..."
         sudo apt install zsh git-core fonts-powerline -y
