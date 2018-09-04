@@ -7,5 +7,11 @@
 4. Install driver
 5. Install zsh shell
 
-# disclaimer
+## Disclaimer
 right now only working on ubuntu based distro or debian.
+
+## Instruction
+1. Download or git clone https://github.com/Ezlan97/notify-expirate.git
+2. Extract folder.
+3. run chmod +x install.sh
+4. run ./install.sh
