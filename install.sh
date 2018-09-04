@@ -50,6 +50,13 @@ elif [ $input == "driver" ]; then
     echo "installing driver packages..."
         sudo ubuntu-drivers autoinstall
     echo "Done! all drivers installed"
+elif [ $input == "zsh" ]; then
+    echo "installing zsh..."
+        sudo apt install zsh git-core fonts-powerline -y
+        wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
+        nano ~/.zshrc //change theme
+        chsh -s $(which zsh)
+    echo "done! install zsh"
 
 elif [ $input == "update&upgrade" ]; then
     echo "check for update and upgrade package"
