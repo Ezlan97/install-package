@@ -54,8 +54,7 @@ elif [ $input == "driver" ]; then
 elif [ $input == "zsh" ]; then
     echo "installing zsh..."
         sudo apt install zsh git-core fonts-powerline -y
-        wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
-        nano ~/.zshrc //change theme
+        wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh        
         chsh -s $(which zsh)
     echo "done! install zsh"
 
