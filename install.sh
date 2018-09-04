@@ -6,7 +6,7 @@ echo "Choose your package [laravel/ssh/driver/zsh/update&upgrade]"
 
 read input
 
-if [$input == "laravel"]; then
+if [ $input == "laravel" ]; then
     echo "installing mysql..."
         sudo apt mysql-server -y
 
@@ -34,10 +34,11 @@ if [$input == "laravel"]; then
 
     echo "Done! your laravel enviroment had been setup"
 
-elif [$input == "ssh"]; then
+elif [ $input == "ssh" ]; then
     echo "enter your email"
+    read email
     echo "generating your ssh key..."
-        ssh-keygen -t rsa -b 4096 -C "eizs798@gmail.com"
+        ssh-keygen -t rsa -b 4096 -C "$email"
         eval "$(ssh-agent -s)"
         ssh-add ~/.ssh/id_rsa
         hash sclip &>/dev/null && echo "xclip installed, continue copy ssh key" || sudo apt install xclip
@@ -45,7 +46,7 @@ elif [$input == "ssh"]; then
     echo "done! copied your ssh key"
     echo "for later use just run this command : xclip -sel clip < ~/.ssh/id_rsa.pub"
 
-elif [$input == "driver"]; then
+elif [ $input == "driver" ]; then
     echo "installing driver packages..."
         sudo ubuntu-drivers autoinstall
     echo "Done! all drivers installed"
