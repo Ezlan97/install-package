@@ -61,7 +61,7 @@ elif [ $input == "zsh" ]; then
 
 elif [ $input == "update&upgrade" ]; then
     echo "check for update and upgrade package"
-        sudo apt update && sudo apt upgrade
+        sudo apt update && sudo apt upgrade -y
     echo "done!"
     
 else
