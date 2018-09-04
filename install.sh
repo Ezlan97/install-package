@@ -20,7 +20,7 @@ if [ $input == "laravel" ]; then
         chmod +x /usr/local/bin/composer
 
     echo "installing valet..."
-        sudo apt-get install network-manager libnss3-tools jq xsel
+        sudo apt-get install network-manager libnss3-tools jq xsel -y
         sudo service apache2 stop
         composer global require cpriego/valet-linux
         export PATH=$PATH:$HOME/.config/composer/vendor/bin
