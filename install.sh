@@ -52,7 +52,7 @@ elif [ $input == "3" ]; then
         ssh-keygen -t rsa -b 4096 -C "$email"
         eval "$(ssh-agent -s)"
         ssh-add ~/.ssh/id_rsa
-        hash sclip &>/dev/null && echo "xclip installed, continue copy ssh key" || sudo apt install xclip
+        hash xclip &>/dev/null && echo "xclip installed, continue copy ssh key" || sudo apt install xclip
         xclip -sel clip < ~/.ssh/id_rsa.pub
     echo "done! copied your ssh key"
     echo "for later use just run this command : xclip -sel clip < ~/.ssh/id_rsa.pub"
@@ -70,9 +70,21 @@ elif [ $input == "5" ]; then
 elif [ $input == "6" ]; then
     echo "installing zsh..."
         sudo apt install zsh git-core fonts-powerline -y
+<<<<<<< HEAD
         wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh        
         chsh -s $(which zsh)
     echo "done! install zsh"    
+=======
+        wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
+        sudo chsh -s $(which zsh)
+    echo "done! install zsh"
+
+elif [ $input == "update&upgrade" ]; then
+    echo "check for update and upgrade package"
+        sudo apt update && sudo apt upgrade -y
+    echo "done!"
+    
+>>>>>>> 1f00c66d38548b333d177b08ef4e2e3e6f83a5a4
 else
     echo "no match found"
 fi
