@@ -41,7 +41,7 @@ elif [ $input == "ssh" ]; then
         ssh-keygen -t rsa -b 4096 -C "$email"
         eval "$(ssh-agent -s)"
         ssh-add ~/.ssh/id_rsa
-        hash sclip &>/dev/null && echo "xclip installed, continue copy ssh key" || sudo apt install xclip
+        hash xclip &>/dev/null && echo "xclip installed, continue copy ssh key" || sudo apt install xclip
         xclip -sel clip < ~/.ssh/id_rsa.pub
     echo "done! copied your ssh key"
     echo "for later use just run this command : xclip -sel clip < ~/.ssh/id_rsa.pub"
