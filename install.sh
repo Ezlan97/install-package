@@ -21,7 +21,7 @@ if [ $input == "1" ]; then
         sudo apt install -y php7.2 libapache2-mod-php7.2 php7.2-cli php7.2-common php7.2-mbstring php7.2-gd php7.2-intl php7.2-xml php7.2-mysql php7.2-zip php7.2-fpm php7.2-bcmath php7.2-curl  
 
     echo "installing composer..."
-        sudo apt install curl -y
+        sudo apt install -y curl
         curl -sS https://getcomposer.org/installer | php
         sudo mv composer.phar /usr/local/bin/composer
         chmod +x /usr/local/bin/composer
