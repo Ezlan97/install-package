@@ -12,8 +12,6 @@ echo "Enter the package or setup number you want example: 1"
 
 read input
 
-sudo su
-
 # laravel
 if [ $input == "1" ]; then
     echo "installing mysql..."
