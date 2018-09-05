@@ -4,6 +4,7 @@ echo "Created by Ezlan97"
 
 echo "Choose your package"
 echo "1. Laravel"
+echo "2. Heroku CLI"
 echo "2. Generate ssh key"
 echo "3. Update & install driver"
 echo "4. Update & upgrade system"
@@ -40,6 +41,11 @@ if [ $input == "1" ]; then
     echo "Done! your laravel enviroment had been setup"
 
 elif [ $input == "2" ]; then
+    echo "Installing heroku cli..."
+    curl https://cli-assets.heroku.com/install-ubuntu.sh | sh
+    echo "done! your heroku cli had been installed"
+
+elif [ $input == "3" ]; then
     echo "enter your email"
     read email
     echo "generating your ssh key..."
@@ -51,17 +57,17 @@ elif [ $input == "2" ]; then
     echo "done! copied your ssh key"
     echo "for later use just run this command : xclip -sel clip < ~/.ssh/id_rsa.pub"
 
-elif [ $input == "3" ]; then
+elif [ $input == "4" ]; then
     echo "installing driver packages..."
         sudo ubuntu-drivers autoinstall
     echo "Done! all drivers installed"
 
-elif [ $input == "4" ]; then
+elif [ $input == "5" ]; then
     echo "check for update and upgrade package"
         sudo apt update && sudo apt upgrade -y
     echo "done!"
 
-elif [ $input == "5" ]; then
+elif [ $input == "6" ]; then
     echo "installing zsh..."
         sudo apt install zsh git-core fonts-powerline -y
         wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh        
