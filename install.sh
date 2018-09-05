@@ -3,15 +3,16 @@
 echo "Created by Ezlan97"
 
 echo "Choose your package"
-echo "1. Laravel"
+echo "1. Laravel Enviroment (Mysql, php, Nginx, Valet, Composer)"
 echo "2. Heroku CLI"
-echo "2. Generate ssh key"
-echo "3. Update & install driver"
-echo "4. Update & upgrade system"
+echo "3. Generate ssh key"
+echo "4. Update & install driver"
+echo "5. Update & upgrade system"
 echo "Enter the package or setup number you want example: 1"
 
 read input
 
+# laravel
 if [ $input == "1" ]; then
     echo "installing mysql..."
         sudo apt mysql-server -y
@@ -25,7 +26,7 @@ if [ $input == "1" ]; then
         sudo mv composer.phar /usr/local/bin/composer
         chmod +x /usr/local/bin/composer
 
-    echo "installing valet..."
+    echo "installing valet & nginx..."
         sudo apt-get install network-manager libnss3-tools jq xsel -y
         sudo service apache2 stop
         composer global require cpriego/valet-linux
@@ -40,11 +41,13 @@ if [ $input == "1" ]; then
 
     echo "Done! your laravel enviroment had been setup"
 
+# heroku cli
 elif [ $input == "2" ]; then
     echo "Installing heroku cli..."
     curl https://cli-assets.heroku.com/install-ubuntu.sh | sh
     echo "done! your heroku cli had been installed"
 
+# ssh key
 elif [ $input == "3" ]; then
     echo "enter your email"
     read email
@@ -57,34 +60,25 @@ elif [ $input == "3" ]; then
     echo "done! copied your ssh key"
     echo "for later use just run this command : xclip -sel clip < ~/.ssh/id_rsa.pub"
 
+# update driver
 elif [ $input == "4" ]; then
     echo "installing driver packages..."
         sudo ubuntu-drivers autoinstall
     echo "Done! all drivers installed"
 
+# update package and upgrade
 elif [ $input == "5" ]; then
     echo "check for update and upgrade package"
         sudo apt update && sudo apt upgrade -y
     echo "done!"
 
+# zsh
 elif [ $input == "6" ]; then
     echo "installing zsh..."
         sudo apt install zsh git-core fonts-powerline -y
-<<<<<<< HEAD
         wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh        
-        chsh -s $(which zsh)
+        chsh -s /bin/zsh
     echo "done! install zsh"    
-=======
-        wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
-        sudo chsh -s $(which zsh)
-    echo "done! install zsh"
-
-elif [ $input == "update&upgrade" ]; then
-    echo "check for update and upgrade package"
-        sudo apt update && sudo apt upgrade -y
-    echo "done!"
-    
->>>>>>> 1f00c66d38548b333d177b08ef4e2e3e6f83a5a4
 else
     echo "no match found"
 fi
