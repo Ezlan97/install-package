@@ -15,7 +15,7 @@ read input
 # laravel
 if [ $input == "1" ]; then
     echo "installing mysql..."
-        sudo apt mysql-server -y
+        sudo apt -y mysql-server
 
     echo "installing php..."
         sdudo apt install -y python-software-properties
