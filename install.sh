@@ -18,8 +18,9 @@ if [ $input == "1" ]; then
         sudo apt install -y php7.2 libapache2-mod-php7.2 php7.2-cli php7.2-common php7.2-mbstring php7.2-gd php7.2-intl php7.2-xml php7.2-mysql php7.2-zip php7.2-fpm php7.2-bcmath php7.2-curl  
         
     echo "installing mysql..."
+        wget https://dev.mysql.com/get/mysql-apt-config_0.8.10-1_all.deb
+        sudo dpkg -i mysql-apt-config_0.8.10-1_all.deb
         sudo apt install -y mysql-server
-        sudo mysql_secure_installation
 
     echo "installing composer..."
         sudo apt install -y curl
