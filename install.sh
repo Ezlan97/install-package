@@ -1,13 +1,23 @@
 #!/bin/bash
 
-echo "Created by Ezlan97"
+#                               
+#   _____ _____     _____ _____ 
+#  |   __|   __|___|   __|__   |
+#  |  |  |  |  |___|   __|   __|
+#  |_____|_____|   |_____|_____|
+#                               
+#                  Version 0.0.2
+#  
+#  Ezlan <https://github.com/Ezlan97>
+#  
 
 echo "Choose your package"
-echo "1. Laravel Enviroment (Mysql, php, Nginx, Valet, Composer)"
+echo "1. Laravel Enviroment (Mysql, php, Nginx, Valet, Composer, Nodejs, NPM)"
 echo "2. Heroku CLI"
 echo "3. Generate ssh key"
 echo "4. Update & install driver"
 echo "5. Update & upgrade system"
+echo "6. Docker (Docker CE, Docker-compose)"
 echo "Enter the package or setup number you want example: 1"
 
 read input
@@ -21,10 +31,13 @@ if [ $input == "1" ]; then
         sudo apt install -y mysql-server
 
     echo "installing composer..."
-        sudo apt install -y curl
-        curl -sS https://getcomposer.org/installer | php
-        sudo mv composer.phar /usr/local/bin/composer
-        chmod +x /usr/local/bin/composer
+        sudo apt install -y composer
+    
+    echo "installing nodeJS"
+        sudo apt install -y nodejs
+    
+    echo "installing NPM"
+        sudo apt install -y npm
 
     echo "installing valet & nginx..."
         sudo apt-get install network-manager libnss3-tools jq xsel -y
@@ -72,13 +85,15 @@ elif [ $input == "5" ]; then
         sudo apt update && sudo apt upgrade -y
     echo "done!"
 
-# zsh
+# Docker
 elif [ $input == "6" ]; then
-    echo "installing zsh..."
-        sudo apt install zsh git-core fonts-powerline -y
-        wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh        
-        chsh -s /bin/zsh
-    echo "done! install zsh"    
+    echo "installing docker..."        
+        sudo apt install -y docker.io
+        sudo systemctl start docker
+        sudo systemctl enable docker
+        sudo apt install -y docker-compose
+
+    echo "done! installed docker"    
 else
     echo "no match found"
 fi
