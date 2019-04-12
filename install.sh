@@ -43,7 +43,7 @@ if [ $input == "1" ]; then
         sudo apt-get install network-manager libnss3-tools jq xsel -y
         sudo service apache2 stop
         composer global require cpriego/valet-linux
-        export PATH=$PATH:~/.composer/vendor/bin
+	export PATH=$PATH:$HOME/.config/composer/vendor/bin
         valet install
         echo "enter domain for valet"
         read domain
