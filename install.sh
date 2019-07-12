@@ -34,10 +34,8 @@ if [ $input == "1" ]; then
         sudo apt install -y composer
     
     echo "installing nodeJS"
-        sudo apt install -y nodejs
-    
-    echo "installing NPM"
-        sudo apt install -y npm
+        curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+        sudo apt-get install -y nodejs
 
     echo "installing valet & nginx..."
         sudo apt-get install network-manager libnss3-tools jq xsel -y
