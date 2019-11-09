@@ -94,7 +94,7 @@ elif [ $input == "6" ]; then
         sudo apt install -y docker-compose
 
     echo "done! installed docker"
-elif [$input == "7"]; then
+elif [ $input == "7" ]; then
     echo "installing Visual Studio Code"
         curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg;
         sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg;
@@ -102,7 +102,7 @@ elif [$input == "7"]; then
         sudo apt-get update;
         sudo apt-get install code;
     echo "installing Android Studio"
-        sudo apt install snapd snapd-xdg-open
+        sudo apt install snapd snapd-xdg-open -y
         sudo snap install android-studio --classic
     echo "installing Gitkraken"
         wget https://release.gitkraken.com/linux/gitkraken-amd64.deb -p ~/Downloads
@@ -111,15 +111,17 @@ elif [$input == "7"]; then
     echo "installing Postman"
         sudo snap install postman
     echo "installing FileZilla"
-        sudo apt install filezilla
-elif [$input == "8"]; then
+        sudo apt install filezilla -y
+	sudo apt install -f
+elif [ $input == "8" ]; then
     echo "installing Discord"
         wget -O ~/Downloads/discord.deb "https://discordapp.com/api/download?platform=linux&format=deb"
         sudo dpkg -i ~/Downloads/discord.deb
     echo "installing Whatsdesk"
         sudo snap install whatsdesk
     echo "installing telegram"
-        sudo apt install telegram-desktop
+        sudo apt install telegram-desktop -y
+	sudo apt install -f -y
 
 else
     echo "no match found, please input the number."
