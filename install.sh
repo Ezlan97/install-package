@@ -39,6 +39,9 @@ if [ $input == "1" ]; then
         curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
         sudo apt-get install -y nodejs
 
+    echo "installing Npm"
+        sudo apt install npm -y
+
     echo "installing valet & nginx..."
         sudo apt-get install network-manager libnss3-tools jq xsel -y
         sudo service apache2 stop
