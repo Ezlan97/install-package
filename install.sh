@@ -13,13 +13,14 @@
 
 echo "Choose your package"
 echo "1. Laravel Enviroment (Mysql, php, Nginx, Valet, Composer, Nodejs, NPM)"
-echo "2. Heroku CLI"
-echo "3. Generate ssh key"
-echo "4. Update & install driver"
-echo "5. Update & upgrade system"
-echo "6. Docker (Docker CE, Docker-compose)"
-echo "7. Development software (Visual Studio Code, Android Studio, Gitkraken, Postman, FileZilla)"
-echo "8. Chat & Storage software (Discord, Whatsdesk, telegram)"
+echo "2. Ionic Enviroment (NodeJS, Ionic, Cordova)"
+echo "3. Heroku CLI"
+echo "4. Generate ssh key"
+echo "5. Update & install driver"
+echo "6. Update & upgrade system"
+echo "7. Docker (Docker CE, Docker-compose)"
+echo "8. Development software (Visual Studio Code, Android Studio, Gitkraken, Postman, FileZilla)"
+echo "9. Chat & Storage software (Discord, Whatsdesk, telegram)"
 echo "Enter the package or setup number you want example: 1"
 
 read input
@@ -57,14 +58,23 @@ if [ $input == "1" ]; then
 
     echo "Done! your laravel enviroment had been setup"
 
-# heroku cli
 elif [ $input == "2" ]; then
+    echo "Installing ionic framework"
+    sudo apt install npm -y
+    curl -sL https://deb.nodesource.com/setup_13.x | sudo -E bash -
+    sudo apt install nodejs -y
+    sudo npm install -g cordova
+    sudo npm install -g ionic
+    echo "Done! ionic framework has been install and ready to use"
+
+# heroku cli
+elif [ $input == "3" ]; then
     echo "Installing heroku cli..."
     curl https://cli-assets.heroku.com/install-ubuntu.sh | sh
     echo "done! your heroku cli had been installed"
 
 # ssh key
-elif [ $input == "3" ]; then
+elif [ $input == "4" ]; then
     echo "enter your email"
     read email
     echo "generating your ssh key..."
@@ -77,19 +87,19 @@ elif [ $input == "3" ]; then
     echo "for later use just run this command : xclip -sel clip < ~/.ssh/id_rsa.pub"
 
 # update driver
-elif [ $input == "4" ]; then
+elif [ $input == "5" ]; then
     echo "installing driver packages..."
         sudo ubuntu-drivers autoinstall
     echo "Done! all drivers installed"
 
 # update package and upgrade
-elif [ $input == "5" ]; then
+elif [ $input == "6" ]; then
     echo "check for update and upgrade package"
         sudo apt update && sudo apt upgrade -y
     echo "done!"
 
 # Docker
-elif [ $input == "6" ]; then
+elif [ $input == "7" ]; then
     echo "installing docker..."        
         sudo apt install -y docker.io
         sudo systemctl start docker
@@ -97,7 +107,7 @@ elif [ $input == "6" ]; then
         sudo apt install -y docker-compose
 
     echo "done! installed docker"
-elif [ $input == "7" ]; then
+elif [ $input == "8" ]; then
     # echo "installing Visual Studio Code"
     #     curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg;
     #     sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg;
@@ -116,7 +126,7 @@ elif [ $input == "7" ]; then
     echo "installing FileZilla"
         sudo apt install filezilla -y
 	sudo apt install -f
-elif [ $input == "8" ]; then
+elif [ $input == "9" ]; then
     echo "installing Discord"
         wget -O ~/Downloads/discord.deb "https://discordapp.com/api/download?platform=linux&format=deb"
         sudo dpkg -i ~/Downloads/discord.deb
