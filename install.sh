@@ -36,7 +36,7 @@ if [ $input == "1" ]; then
         sudo apt install -y composer
     
     echo "installing nodeJS"
-        curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+        curl -sL https://deb.nodesource.com/setup_13.x | sudo -E bash -
         sudo apt-get install -y nodejs
 
     echo "installing Npm"
