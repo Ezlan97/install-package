@@ -28,7 +28,7 @@ read input
 # laravel
 if [ $input == "1" ]; then
     echo "installing php..."
-        sudo apt install php-fpm php-cli php-curl php-mysql php-curl php-gd php-mbstring php-pear -y        
+        sudo apt install php-fpm php-cli php-curl php-mysql php-curl php-zip php-gd php-mbstring php-pear -y        
     echo "installing mysql..."
         sudo apt install -y mysql-server
 
