@@ -36,8 +36,8 @@ if [ $input == "1" ]; then
     sudo apt update
 
     echo "installing php..."
-        sudo apt install php$phpVersion-fpm php$phpVersion-cli php$phpVersion-curl php$phpVersion-mysql php$phpVersion-curl php$phpVersion-zip php$phpVersion-gd php$phpVersion-mbstring php$phpVersion-pear -y        
-        
+        sudo apt install php$phpVersion php$phpVersion-fpm php$phpVersion-cli php$phpVersion-curl php$phpVersion-mysql php$phpVersion-curl php$phpVersion-zip php$phpVersion-gd php$phpVersion-mbstring php$phpVersion-pear -y        
+
     echo "installing mysql..."
         sudo apt install -y mysql-server
 
