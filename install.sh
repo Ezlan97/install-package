@@ -27,8 +27,17 @@ read input
 
 # laravel
 if [ $input == "1" ]; then
+    echo "select php version?"
+
+    read phpVersion
+
+    sudo apt install software-properties-common
+    sudo add-apt-repository ppa:ondrej/php
+    sudo apt update
+
     echo "installing php..."
-        sudo apt install php-fpm php-cli php-curl php-mysql php-curl php-zip php-gd php-mbstring php-pear -y        
+        sudo apt install php$phpVersion-fpm php$phpVersion-cli php$phpVersion-curl php$phpVersion-mysql php$phpVersion-curl php$phpVersion-zip php$phpVersion-gd php$phpVersion-mbstring php$phpVersion-pear -y        
+        
     echo "installing mysql..."
         sudo apt install -y mysql-server
 
